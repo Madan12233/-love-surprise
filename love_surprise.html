@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dari madan 💖</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            opacity: 0;
+            font-size: 1.8em;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 5s infinite;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-100px) scale(1.2); }
+            100% { transform: translateY(-200px) scale(0.8); opacity: 0; }
+        }
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 20px;
+            background-color: white;
+            color: red;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hai Riri ❤️</h1>
+    <button onclick="showMessage()">Klik Aku!</button>
+    <p class="message" id="message" style="display: none;">Aku sayang kamu, sayang nya mengalahi luas nya alam semesta! 💕</p>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 300);
+        
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
